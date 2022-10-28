@@ -4,7 +4,7 @@ import { UserTarea } from "../types/user";
 export const useForm = ( initialState: UserTarea ): [ UserTarea , React.ChangeEventHandler , React.MouseEventHandler ] => {
     const [ inputs , setInputs ] = useState<UserTarea>(initialState)
 
-    const handleChange = (e) => {
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         
         const { name , value  , type } = e.target; 
 

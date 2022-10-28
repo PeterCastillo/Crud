@@ -5,6 +5,8 @@ import { useEffect } from "react"
 
 export const useTareas = (tarea:UserTarea , reset:React.MouseEventHandler ): [ React.MouseEventHandler ] => {
 
+    const {userId } = tarea
+
     const dispach = useDispatch()
 
     const AddTarea = async() => {
@@ -23,6 +25,8 @@ export const useTareas = (tarea:UserTarea , reset:React.MouseEventHandler ): [ R
     }
 
     const setTareas = (tareas:Array<UserTarea>) => {
+        dispach(cleanTatras())
+        console.log(tareas)
         tareas.forEach(tarea => {
             dispach(addTareaUser(tarea))
         })
@@ -36,8 +40,7 @@ export const useTareas = (tarea:UserTarea , reset:React.MouseEventHandler ): [ R
 
     useEffect(()=> {
         getAllTareas(tarea.userId)
-        dispach(cleanTatras())
-    },[tarea.userId])
+    },[userId])
 
     return [ AddTarea ] 
 }

@@ -14,7 +14,7 @@ function App() {
       <Form/>
       <TareasCointainer>
         {
-          tareas.length > 1
+          tareas.length > 0
           ? tareas.map(item => (
             <ThingToDo key={item.descripcionTarea} infoTarea={item}/>
           ))
